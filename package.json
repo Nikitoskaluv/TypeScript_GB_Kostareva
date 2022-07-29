@@ -1,0 +1,27 @@
+{
+    "name": "typescript_gb_kostareva",
+    "version": "1.0.0",
+    "description": "Homeworks for the TypeScript course GeekBrains July 2022",
+    "main": "index.js",
+    "scripts": {
+        "build": "rm -rf public/scripts && tsc",
+        "build:dev": "rm -rf public/scripts && tsc -p tsconfig-dev.json"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Nikitoskaluv/TypeScript_GB_Kostareva.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Nikitoskaluv/TypeScript_GB_Kostareva/issues"
+    },
+    "homepage": "https://github.com/Nikitoskaluv/TypeScript_GB_Kostareva#readme",
+    "type": "commonjs",
+    "devDependencies": {
+        "@types/node": "^18.0.3",
+        "ts-node": "^10.8.2",
+        "tslib": "^2.4.0",
+        "typescript": "^4.7.4"
+    }
+}
