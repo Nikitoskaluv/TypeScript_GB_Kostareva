@@ -1,7 +1,7 @@
 //Функция вычисляет суммму со скидкой. На вход передается 2 параметра сумма и скидка. 
 
 
-const getPriceWithDiscount = (summ: number | undefined, discount: number | undefined): number => {
+const getPriceWithDiscount = (summ?: number, discount?: number): number => {
     if (typeof summ === 'number' && !isNaN(summ) && typeof discount === 'number' && !isNaN(discount)) {
         return summ - (summ * discount / 100);
     }

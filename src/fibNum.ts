@@ -20,7 +20,7 @@ const fib = (n: number): number[] => {
     return fibArr
 }
 
-function checkAdnTransform(arr: any[]): void {
+function checkAdnTransform(arr: string[]): void {
     if (arr.length = 1) {
         const number = parseInt(arr[0]);
         if (!isNaN(number)) {
