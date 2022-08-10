@@ -1,19 +1,22 @@
 import { Cover } from './types/cover.js'
+import { IProduct } from './types/productI'
 
-export const cart: Product[] = [];
+export const cart: Product<any>[] = [];
 
-export class Product {
+export class Product<T> implements IProduct<T> {
     name: string
     cover: Cover
     status?: boolean
     quantity?: number = 0
     price?: number
+    type: T
 
 
-    constructor(name: string, cover: Cover, price?: number) {
+    constructor(name: string, cover: Cover, type: T, price?: number) {
         this.name = name
         this.cover = cover
         this.price = price
+        this.type = type
     }
 
     canBuy(): boolean {
@@ -25,7 +28,7 @@ export class Product {
     getPrice(): string {
         return this.price ? this.price.toString() : 'Нет в продаже'
     }
-    buyProduct(product: Product): void {
+    buyProduct(product: Product<any>): void {
         if (this.price) {
             this.status = true;
             this.quantity = this.quantity + 1;

@@ -1,14 +1,19 @@
 import { Product } from "./product.js";
 import { Cover } from './types/cover.js'
 
-export class Notepad extends Product {
+enum Type {
+    Plain,
+    Graph
+}
+
+export class Notepad extends Product<Type> {
     name: string
     cover: Cover
     price?: number
 
 
     constructor(name: string, cover: Cover, price?: number) {
-        super(name, cover, price);
+        super(name, cover, Type.Graph, price);
     }
 
     canBuy(): boolean {

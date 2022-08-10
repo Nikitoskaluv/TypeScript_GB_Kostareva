@@ -1,6 +1,8 @@
 
-import { products } from './product-collection.js'
+import { products, books } from './product-collection.js'
 import { cart } from './product.js'
+import { Product } from './product'
+import { Book } from './book'
 
 // import { Notepad } from './notepad.js'
 // import { Album } from './album.js'
@@ -47,11 +49,34 @@ import { cart } from './product.js'
 //   return product.author ? product.author.name + product.author.surname : 'Автор не указан'
 // }
 
+function getProductFromCatalog<T extends Product<T>>(array: Array<T>, title: string): T | undefined {
+    const product = array.find(product => product.name.toLowerCase() === title.toLowerCase());
+    return product;
+}
 
-products.forEach(product => product.showData());
 
-products.forEach(product => product.buyProduct(product));
-console.log(cart);
+const chosenProduct = getProductFromCatalog<Product<any>>(products, 'Notepad');
+if (chosenProduct) {
+    console.log(`Вы выбрали ${chosenProduct.name}`);
+} else {
+    console.log('Нет такого товара');
+}
+
+const chosenBook = getProductFromCatalog<Product<any>>(books, 'Lord of the Ring');
+if (chosenBook) {
+    console.log(`Вы выбрали ${chosenBook.name}`);
+} else {
+    console.log('Нет такого товара');
+}
+
+
+
+
+
+// products.forEach(product => product.showData());
+
+// products.forEach(product => product.buyProduct(product));
+// console.log(cart);
 
 
 

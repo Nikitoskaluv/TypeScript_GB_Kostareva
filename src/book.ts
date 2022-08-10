@@ -1,8 +1,12 @@
 import { Product } from './product.js'
 import { IAuthor } from './types/author.js'
 import { Cover } from './types/cover.js'
+enum Type {
+  New,
+  Old
+}
 
-export class Book extends Product {
+export class Book extends Product<Type> {
   name: string
   genre: string
   cover: Cover
@@ -11,8 +15,9 @@ export class Book extends Product {
 
 
 
+
   constructor(name: string, genre: string, cover: Cover, price?: number, author?: IAuthor) {
-    super(name, cover, price);
+    super(name, cover, Type.New, price);
     this.genre = genre,
       this.author = author
   }
