@@ -1,9 +1,10 @@
 import { Cover } from './types/cover.js'
 import { IProduct } from './types/productI'
 
+//Задание 2 
 export const cart: Product<any>[] = [];
 
-export class Product<T> implements IProduct<T> {
+export class Product<T = any> implements IProduct<T> {
     name: string
     cover: Cover
     status?: boolean

@@ -1,8 +1,10 @@
 
 import { products, books } from './product-collection.js'
 import { cart } from './product.js'
-import { Product } from './product'
-import { Book } from './book'
+import { Product } from './product.js'
+import { Book } from './book.js'
+import { MyMap } from './common/MyMap.js'
+import { map } from './product-collection.js'
 
 // import { Notepad } from './notepad.js'
 // import { Album } from './album.js'
@@ -49,28 +51,44 @@ import { Book } from './book'
 //   return product.author ? product.author.name + product.author.surname : 'Автор не указан'
 // }
 
-function getProductFromCatalog<T extends Product<T>>(array: Array<T>, title: string): T | undefined {
-    const product = array.find(product => product.name.toLowerCase() === title.toLowerCase());
-    return product;
+
+// Задание 1 функция  getFrom 
+function getProductFromCatalog<Type extends MyMap, T extends Product>(obj: Type, id: number): T | undefined {
+    return obj.get(id);
 }
+const chosenProduct = getProductFromCatalog<MyMap, Product>(map, 2);
 
-
-const chosenProduct = getProductFromCatalog<Product<any>>(products, 'Notepad');
 if (chosenProduct) {
     console.log(`Вы выбрали ${chosenProduct.name}`);
 } else {
     console.log('Нет такого товара');
 }
 
-const chosenBook = getProductFromCatalog<Product<any>>(books, 'Lord of the Ring');
-if (chosenBook) {
-    console.log(`Вы выбрали ${chosenBook.name}`);
-} else {
-    console.log('Нет такого товара');
+
+
+// Задание 3 корзина и функция 
+const cartWithMap = new MyMap<number, Product>();
+
+function getProductsForCart<Type extends MyMap>(obj: Type, id: number, productForCart: Product, Q: number): Type | undefined {
+    obj.set(id, productForCart);
+    obj.get(id)['orderedQuantity'] = Q;
+    return obj;
 }
+getProductsForCart(cartWithMap, 1, new Book('Lord of the Ring', 'fantasy', 'hard', 1001), 3);
+getProductsForCart(cartWithMap, 2, new Book('Game of Thrones', 'fantasy', 'soft', 220), 2);
+
+console.log(`Корзина ${JSON.stringify(cartWithMap)}`);
 
 
 
+
+
+// const chosenBook = getProductFromCatalog<Product<any>>(books, 3);
+// if (chosenBook) {
+//     console.log(`Вы выбрали ${ chosenBook.name } `);
+// } else {
+//     console.log('Нет такого товара');
+// }
 
 
 // products.forEach(product => product.showData());

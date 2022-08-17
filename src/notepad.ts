@@ -1,5 +1,6 @@
 import { Product } from "./product.js";
 import { Cover } from './types/cover.js'
+//Задание 2 
 
 enum Type {
     Plain,

@@ -1,6 +1,7 @@
 import { Product } from './product.js'
 import { IAuthor } from './types/author.js'
 import { Cover } from './types/cover.js'
+//Задание 2 
 enum Type {
   New,
   Old

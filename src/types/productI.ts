@@ -1,5 +1,5 @@
 import { Cover } from '../types/cover.js'
-export interface IProduct<T> {
+export interface IProduct<T = any> {
     name: string
     cover: Cover
     status?: boolean
