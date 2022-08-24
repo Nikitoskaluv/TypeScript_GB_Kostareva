@@ -7,17 +7,20 @@ export const cart: Product<any>[] = [];
 export class Product<T = any> implements IProduct<T> {
     name: string
     cover: Cover
+    id: number
     status?: boolean
     quantity?: number = 0
     price?: number
     type: T
 
 
-    constructor(name: string, cover: Cover, type: T, price?: number) {
+
+    constructor(name: string, cover: Cover, id: number, type: T, price?: number) {
         this.name = name
         this.cover = cover
         this.price = price
         this.type = type
+        this.id = id
     }
 
     canBuy(): boolean {

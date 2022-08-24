@@ -4,13 +4,20 @@
     //   "node"
     // ],
     "target": "es2016",
-    "module": "es2015",
+    "module": "ES6",
     "moduleResolution": "node",
+    "declaration": true,
+    "declarationDir": "dist/rootTypes",
     "outDir": "public/scripts",
     "esModuleInterop": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "allowJs": true,
+    // "sourceMap": true,
   },
   "files": [
-    "src/index.ts",
+    "src/index.ts"
+  ],
+  "include": [
+    "src/**/*"
   ]
 }

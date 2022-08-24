@@ -11,14 +11,15 @@ export class Book extends Product<Type> {
   name: string
   genre: string
   cover: Cover
+  id: number
   price?: number
   author?: IAuthor;
 
 
 
 
-  constructor(name: string, genre: string, cover: Cover, price?: number, author?: IAuthor) {
-    super(name, cover, Type.New, price);
+  constructor(name: string, genre: string, cover: Cover, id: number, price?: number, author?: IAuthor) {
+    super(name, cover, id, Type.New, price);
     this.genre = genre,
       this.author = author
   }

@@ -13,8 +13,8 @@ export class Notepad extends Product<Type> {
     price?: number
 
 
-    constructor(name: string, cover: Cover, price?: number) {
-        super(name, cover, Type.Graph, price);
+    constructor(name: string, cover: Cover, id: number, price?: number) {
+        super(name, cover, id, Type.Graph, price);
     }
 
     canBuy(): boolean {

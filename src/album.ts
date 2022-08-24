@@ -11,9 +11,9 @@ export class Album extends Product<Type> {
     width: number
     length: number
 
-    constructor(width: number, length: number, cover: Cover,
+    constructor(width: number, length: number, cover: Cover, id: number,
         price?: number, name: string = 'Album') {
-        super(name, cover, Type.Plain, price)
+        super(name, cover, id, Type.Plain, price)
         this.width = width,
             this.length = length
     }

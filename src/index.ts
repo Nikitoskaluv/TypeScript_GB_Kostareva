@@ -1,11 +1,14 @@
 
 import { products, books } from './product-collection.js'
-import { cart } from './product.js'
-import { Product } from './product.js'
-import { Book } from './book.js'
-import { MyMap } from './common/MyMap.js'
-import { map } from './product-collection.js'
+import { User } from './userClass.js';
 
+// import { cart } from './product.js'
+// import { Product } from './product.js'
+// import { Book } from './book.js'
+// import { MyMap } from './common/MyMap.js'
+// import { map } from './product-collection.js'
+// import { toUpperCase } from './string-helper.js'
+// import { IBook, IOptions, search } from 'google-books-search'
 // import { Notepad } from './notepad.js'
 // import { Album } from './album.js'
 // import { Product } from './product.js'
@@ -53,34 +56,31 @@ import { map } from './product-collection.js'
 
 
 // Задание 1 функция  getFrom 
-function getProductFromCatalog<Type extends MyMap, T extends Product>(obj: Type, id: number): T | undefined {
-    return obj.get(id);
-}
-const chosenProduct = getProductFromCatalog<MyMap, Product>(map, 2);
+// function getProductFromCatalog<Type extends MyMap, T extends Product>(obj: Type, id: number): T | undefined {
+//     return obj.get(id);
+// }
+// const chosenProduct = getProductFromCatalog<MyMap, Product>(map, 2);
 
-if (chosenProduct) {
-    console.log(`Вы выбрали ${chosenProduct.name}`);
-} else {
-    console.log('Нет такого товара');
-}
+// if (chosenProduct) {
+//     console.log(`Вы выбрали ${chosenProduct.name}`);
+// } else {
+//     console.log('Нет такого товара');
+// }
 
 
 
 // Задание 3 корзина и функция 
-const cartWithMap = new MyMap<number, Product>();
+// const cartWithMap = new MyMap<number, Product>();
 
-function getProductsForCart<Type extends MyMap>(obj: Type, id: number, productForCart: Product, Q: number): Type | undefined {
-    obj.set(id, productForCart);
-    obj.get(id)['orderedQuantity'] = Q;
-    return obj;
-}
-getProductsForCart(cartWithMap, 1, new Book('Lord of the Ring', 'fantasy', 'hard', 1001), 3);
-getProductsForCart(cartWithMap, 2, new Book('Game of Thrones', 'fantasy', 'soft', 220), 2);
+// function getProductsForCart<Type extends MyMap>(obj: Type, id: number, productForCart: Product, Q: number): Type | undefined {
+//     obj.set(id, productForCart);
+//     obj.get(id)['orderedQuantity'] = Q;
+//     return obj;
+// }
+// getProductsForCart(cartWithMap, 1, new Book('Lord of the Ring', 'fantasy', 'hard', 1001), 3);
+// getProductsForCart(cartWithMap, 2, new Book('Game of Thrones', 'fantasy', 'soft', 220), 2);
 
-console.log(`Корзина ${JSON.stringify(cartWithMap)}`);
-
-
-
+// console.log(`Корзина ${JSON.stringify(cartWithMap)}`);
 
 
 // const chosenBook = getProductFromCatalog<Product<any>>(books, 3);
@@ -97,6 +97,74 @@ console.log(`Корзина ${JSON.stringify(cartWithMap)}`);
 // console.log(cart);
 
 
+
+// console.log(toUpperCase('ssds'));
+
+// const searchBooks = (query: string, options: IOptions = {}): Promise<IBook[]> => new Promise((resolve, reject) => {
+//     search(query, options, (error, result) => {
+//         // reject(new Error('some error'))
+//         if (error) {
+//             reject(error);
+//         } else {
+//             resolve(result);
+//         }
+//     })
+// })
+// const main = async () => {
+//     searchBooks("Harry Potter")
+//         .then(books => {
+//             console.log(books);
+//             return books;
+//         })
+//         .catch(error => {
+//             console.log("Ошибка", error)
+//             return error;
+//         });
+// }
+
+// const main = async () => {
+//     try {
+//         const books = await searchBooks('Harry Poter');
+//         console.log(books);
+//     } catch (error) {
+//         console.log(error);
+//     }
+
+//     console.log('1');
+// }
+
+// main();
+
+
+// search('Harry Poter', {
+//     limit: 2
+// }, (error, result) => {
+//     if (error) {
+//         console.log(error);
+//     } else {
+//         console.dir(result, { depth: null, colors: true })
+//     }
+// });
+
+const user1 = new User('Jane', 'Daw', 'Jane@Daw', '12.10.1989', 'DDDDDD');
+console.log(`Пользователь ${JSON.stringify(user1)}`);
+user1.addToCart(100, books);
+user1.addToCart(101, books);
+user1.addToCart(100, books);
+user1.addToCart(103, books);
+user1.addToCart(102, books);
+user1.removeFromCart(103);
+user1.removeFromCart(102);
+user1.removeFromCart(105);
+user1.removeFromCart(100);
+user1.removeFromCart(100);
+user1.removeFromCart(100);
+
+
+console.log(`Сумма ${user1.countTotal()}`);
+console.log(`Корзина ${JSON.stringify(user1.cart)}`);
+
+console.log(books, products);
 
 
 

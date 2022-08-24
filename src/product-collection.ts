@@ -4,22 +4,21 @@ import { Album } from './album.js'
 import { Product } from './product.js'
 import { MyMap } from './common/MyMap.js'
 
-export const books = {
-  1: new Book('Harry Potter and the Philosopher\'s Stone', 'fantasy', 'hard', 980),
-  2: new Book('Lord of the Ring', 'fantasy', 'hard', 1001),
-  3: new Book('How to be productive', 'lifestyle', 'hard', 500),
-  4: new Book('Game of Thrones', 'fantasy', 'soft'),
-  5: new Book('Eat,pray,love', 'romance', 'soft', 1500, { name: 'Elizabeth', surname: 'Gilbert' }),
-}
+export const books = [
+  new Book('Harry Potter and the Philosopher\'s Stone', 'fantasy', 'hard', 100, 980),
+  new Book('Lord of the Ring', 'fantasy', 'hard', 101, 1001),
+  new Book('How to be productive', 'lifestyle', 'hard', 102, 500),
+  new Book('Game of Thrones', 'fantasy', 'soft', 103),
+  new Book('Eat,pray,love', 'romance', 'soft', 104, 1500, { name: 'Elizabeth', surname: 'Gilbert' }),
+]
+
+export const products = [new Notepad('Notepad one', 'hard', 104, 777),
+new Notepad('Notepad two', 'soft', 105),
+new Album(15, 20, 'hard', 106, 300)]
 
 
-export const products = {
-  1: new Notepad('Notepad one', 'hard', 777),
-  2: new Notepad('Notepad two', 'soft'),
-  3: new Album(15, 20, 'hard', 300)
-}
 
-export const map = new MyMap<number, Product>();
+// export const map = new MyMap<number, Product>();
 
 // map.set(1, new Book('Lord of the Ring', 'fantasy', 'hard', 1001));
 // map.set(2, new Notepad('Notepad one', 'hard', 777));
@@ -27,18 +26,19 @@ export const map = new MyMap<number, Product>();
 
 
 //Задание 4 метод setAll 
-const arayOfProducts = [{ 1: new Book('Harry Potter and the Philosopher\'s Stone', 'fantasy', 'hard', 980) },
-{ 2: new Book('Lord of the Ring', 'fantasy', 'hard', 1001) },
-{ 3: new Book('How to be productive', 'lifestyle', 'hard', 500) },
-{ 4: new Book('Game of Thrones', 'fantasy', 'soft') },
-{ 5: new Book('Eat,pray,love', 'romance', 'soft', 1500, { name: 'Elizabeth', surname: 'Gilbert' }) },
-{ 6: new Notepad('Notepad one', 'hard', 777) },
-{ 7: new Notepad('Notepad two', 'soft') },
-{ 9: new Album(15, 20, 'hard', 300) }
-];
+// const arayOfProducts = [{ 1: new Book('Harry Potter and the Philosopher\'s Stone', 'fantasy', 'hard', 980) },
+// { 2: new Book('Lord of the Ring', 'fantasy', 'hard', 1001) },
+// { 3: new Book('How to be productive', 'lifestyle', 'hard', 500) },
+// { 4: new Book('Game of Thrones', 'fantasy', 'soft') },
+// { 5: new Book('Eat,pray,love', 'romance', 'soft', 1500, { name: 'Elizabeth', surname: 'Gilbert' }) },
+// { 6: new Notepad('Notepad one', 'hard', 777) },
+// { 7: new Notepad('Notepad two', 'soft') },
+// { 9: new Album(15, 20, 'hard', 300) }
+// ];
 
-map.setAll(arayOfProducts);
-console.log(`Товары ${JSON.stringify(map.getAll())}`);
+// map.setAll(arayOfProducts);
+// export const catalogue = map.getAll();
+// console.log(`Товары ${JSON.stringify(map.getAll())}`);
 
 //Проверка методов класса MyMap с урока 
 // console.log(`Два товара ${JSON.stringify(map.getAll())}`);
