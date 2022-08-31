@@ -12,7 +12,7 @@ export class Product<T = any>  {
     status?: boolean
     quantity?: number = 0
     protected price?: number
-    type: T
+    protected _type: T
     private _reviews: Review[] = []
     private _score: number = 0
 
@@ -22,7 +22,7 @@ export class Product<T = any>  {
         this.name = name
         this.cover = cover
         this.price = price
-        this.type = type
+        this._type = type
         this.id = id
 
     }
@@ -31,6 +31,9 @@ export class Product<T = any>  {
     }
     get reviews(): Readonly<Review[]> {
         return this._reviews
+    }
+    get type() {
+        return this._type;
     }
 
     canBuy(): boolean {
@@ -47,5 +50,10 @@ export class Product<T = any>  {
         this._score = this._reviews.reduce<number>((acc, review) => {
             return acc + review.score;
         }, 0) / this._reviews.length
+    }
+    static getInfoStatic(product: Product) {
+        console.log(product.name, product.quantity);
+
+
     }
 }

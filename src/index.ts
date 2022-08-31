@@ -1,7 +1,7 @@
 
 import { products, books } from './product-collection.js'
 import { User } from './userClass.js';
-import { Logger } from './common/Logger';
+import { Logger } from './common/Logger.js'
 // import { cart } from './product.js'
 // import { Product } from './product.js'
 import { Book } from './book.js'
@@ -11,14 +11,14 @@ import { Book } from './book.js'
 // import { IBook, IOptions, search } from 'google-books-search'
 // import { Notepad } from './notepad.js'
 // import { Album } from './album.js'
-// import { Product } from './product.js'
+import { Product } from './product.js'
 // import { Book } from './book.js'
 
 const main = () => {
     const logger = new Logger();
 
     const book = new Book('Harry Potter and the Philosopher\'s Stone', 'fantasy', 'hard', 100, 980);
-    console.log(book);
+    // console.log(book);
 
     book.addReview({
         author: 'Andrey',
@@ -31,8 +31,12 @@ const main = () => {
         score: 2
     });
 
-    logger.info(book.name);
-    logger.error('some error');
+    Logger.info(book.name);
+    Logger.error('some error');
+    Product.getInfoStatic(book);
+    
+    console.log(book.type);
+    console.log(book.score);
 
 }
 main();

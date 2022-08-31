@@ -4,10 +4,9 @@
     //   "node"
     // ],
     // "target": "es2016",
-    // "module": "ES6",
+    "module": "ES6",
     // "moduleResolution": "node",
-      // "sourceMap": true,
-
+    // "sourceMap": true,
     "declaration": true,
     "declarationDir": "dist/rootTypes",
     "outDir": "public/scripts",
@@ -16,8 +15,8 @@
     "strict": true,
     "target": "ES6",
     "moduleResolution": "node",
-    "module": "CommonJS",
-    "esModuleInterop": true,
+    // "module": "commonjs",
+    // "esModuleInterop": true,
   },
   "files": [
     "src/index.ts"

@@ -28,11 +28,11 @@ export class MyMap<K extends number | string | symbol = number, V = any>{
 
     setAll(arr: Array<Record<K, V>>): void {
         arr.forEach((el) => {
-            const keyArr = Object.getOwnPropertyNames(el);
-            keyArr.forEach(el => {
-                this.data[el] = el[el]
-            })
-
+            let key: keyof typeof el;
+            for (key in el) {
+                this.data[key] = el[key];
+            }
         })
+
     }
 }

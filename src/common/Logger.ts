@@ -1,8 +1,8 @@
 export class Logger {
-    info(message: any) {
+    static info(message: any) {
         console.log(message);
     }
-    error(message: any) {
+    static error(message: any) {
         console.log(message);
     }
 }

@@ -18,6 +18,7 @@ export class Book extends Product<Type> {
     this.genre = genre,
       this.author = author
   }
+
   showData(): void {
     console.log(`Товар - ${this.name}, цена - ${this.getPrice()} - тип обложки ${this.cover},жанр - ${this.genre}, автор - ${this.getAuthor()}`)
   }
