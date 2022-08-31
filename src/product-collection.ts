@@ -27,7 +27,7 @@ export const map = new MyMap<number, Product>();
 
 
 //Задание 4 метод setAll 
-const arayOfProducts = [{ 1: new Book('Harry Potter and the Philosopher\'s Stone', 'fantasy', 'hard', 980) },
+const arayOfProducts: Array<{}> = [{ 1: new Book('Harry Potter and the Philosopher\'s Stone', 'fantasy', 'hard', 980) },
 { 2: new Book('Lord of the Ring', 'fantasy', 'hard', 1001) },
 { 3: new Book('How to be productive', 'lifestyle', 'hard', 500) },
 { 4: new Book('Game of Thrones', 'fantasy', 'soft') },

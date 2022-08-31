@@ -8,9 +8,7 @@ enum Type {
 }
 
 export class Book extends Product<Type> {
-  name: string
   genre: string
-  cover: Cover
   price?: number
   author?: IAuthor;
 

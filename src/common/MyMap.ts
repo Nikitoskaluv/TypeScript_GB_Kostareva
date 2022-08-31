@@ -1,7 +1,7 @@
+type Ktype = number | string | symbol
 
-
-export class MyMap<K extends number | string | symbol = number, V = any>{
-    data: Record<K, V> = {} as Record<K, V>
+export class MyMap<K extends Ktype = number, V = any>{
+    data = {} as Record<K, V>
 
     set(key: K, value: V): void {
         this.data[key] = value;
@@ -25,11 +25,13 @@ export class MyMap<K extends number | string | symbol = number, V = any>{
     getAll(): Record<K, V> {
         return this.data
     }
-    
+
     setAll(arr: Array<Record<K, V>>): void {
         arr.forEach((el) => {
-            const key = +Object.getOwnPropertyNames(el);
-            this.data[key] = el[key]
+            let key: keyof typeof el;
+            for (key in el) {
+                this.data[key] = el[key];
+            }
         })
     }
 }
