@@ -1,0 +1,1 @@
+export type Cover = 'soft' | 'hard';
