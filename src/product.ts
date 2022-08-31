@@ -9,7 +9,7 @@ export class Product<T = any> implements IProduct<T> {
     cover: Cover
     id: number
     status?: boolean
-    quantity?: number = 0
+    quantity: number = 0
     price?: number
     type: T
 

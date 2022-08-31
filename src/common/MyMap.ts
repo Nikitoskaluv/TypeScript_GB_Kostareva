@@ -25,11 +25,13 @@ export class MyMap<K extends number | string | symbol = number, V = any>{
     getAll(): Record<K, V> {
         return this.data
     }
-    
+
     setAll(arr: Array<Record<K, V>>): void {
         arr.forEach((el) => {
-            const key = +Object.getOwnPropertyNames(el);
-            this.data[key] = el[key]
+            let key: keyof typeof el;
+            for (key in el) {
+                this.data[key] = el[key];
+            }
         })
     }
 }
