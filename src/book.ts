@@ -1,6 +1,7 @@
 import { Product } from './product.js'
 import { IAuthor } from './types/author.js'
 import { Cover } from './types/cover.js'
+import { Review } from './types/reviewI.js';
 //Задание 2 
 enum Type {
   New,
@@ -8,18 +9,12 @@ enum Type {
 }
 
 export class Book extends Product<Type> {
-  name: string
   genre: string
-  cover: Cover
-  id: number
-  price?: number
   author?: IAuthor;
 
 
-
-
-  constructor(name: string, genre: string, cover: Cover, id: number, price?: number, author?: IAuthor) {
-    super(name, cover, id, Type.New, price);
+  constructor(name: string, genre: string, cover: Cover, id: number, price?: number, author?: IAuthor,) {
+    super(name, cover, id, Type.New, price,)
     this.genre = genre,
       this.author = author
   }
@@ -28,6 +23,9 @@ export class Book extends Product<Type> {
   }
   getAuthor(): string {
     return this.author ? this.author.name + ' ' + this.author.surname : 'Автор не указан'
+  }
+  getInfo() {
+    console.log(this.name, this.price);
   }
 
 }

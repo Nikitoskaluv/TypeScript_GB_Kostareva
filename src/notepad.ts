@@ -8,8 +8,7 @@ enum Type {
 }
 
 export class Notepad extends Product<Type> {
-    name: string
-    cover: Cover
+
     price?: number
 
 

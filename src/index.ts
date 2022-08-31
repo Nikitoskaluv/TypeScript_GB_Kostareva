@@ -1,10 +1,10 @@
 
 import { products, books } from './product-collection.js'
 import { User } from './userClass.js';
-
+import { Logger } from './common/Logger';
 // import { cart } from './product.js'
 // import { Product } from './product.js'
-// import { Book } from './book.js'
+import { Book } from './book.js'
 // import { MyMap } from './common/MyMap.js'
 // import { map } from './product-collection.js'
 // import { toUpperCase } from './string-helper.js'
@@ -13,6 +13,33 @@ import { User } from './userClass.js';
 // import { Album } from './album.js'
 // import { Product } from './product.js'
 // import { Book } from './book.js'
+
+const main = () => {
+    const logger = new Logger();
+
+    const book = new Book('Harry Potter and the Philosopher\'s Stone', 'fantasy', 'hard', 100, 980);
+    console.log(book);
+
+    book.addReview({
+        author: 'Andrey',
+        text: 'Text',
+        score: 4
+    });
+    book.addReview({
+        author: 'Irina',
+        text: 'Text',
+        score: 2
+    });
+
+    logger.info(book.name);
+    logger.error('some error');
+
+}
+main();
+
+
+
+
 
 
 // function findSuitableBook(genre: string, pagesLimit: number, multipleRecommendations = true): Book | Book[] {
@@ -146,25 +173,25 @@ import { User } from './userClass.js';
 //     }
 // });
 
-const user1 = new User('Jane', 'Daw', 'Jane@Daw', '12.10.1989', 'DDDDDD');
-console.log(`Пользователь ${JSON.stringify(user1)}`);
-user1.addToCart(100, books);
-user1.addToCart(101, books);
-user1.addToCart(100, books);
-user1.addToCart(103, books);
-user1.addToCart(102, books);
-user1.removeFromCart(103);
-user1.removeFromCart(102);
-user1.removeFromCart(105);
-user1.removeFromCart(100);
-user1.removeFromCart(100);
-user1.removeFromCart(100);
+// const user1 = new User('Jane', 'Daw', 'Jane@Daw', '12.10.1989', 'DDDDDD');
+// console.log(`Пользователь ${JSON.stringify(user1)}`);
+// user1.addToCart(100, books);
+// user1.addToCart(101, books);
+// user1.addToCart(100, books);
+// user1.addToCart(103, books);
+// user1.addToCart(102, books);
+// user1.removeFromCart(103);
+// user1.removeFromCart(102);
+// user1.removeFromCart(105);
+// user1.removeFromCart(100);
+// user1.removeFromCart(100);
+// user1.removeFromCart(100);
 
 
-console.log(`Сумма ${user1.countTotal()}`);
-console.log(`Корзина ${JSON.stringify(user1.cart)}`);
+// console.log(`Сумма ${user1.countTotal()}`);
+// console.log(`Корзина ${JSON.stringify(user1.cart)}`);
 
-console.log(books, products);
+// console.log(books, products);
 
 
 
