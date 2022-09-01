@@ -14,35 +14,63 @@ import { Book } from './book.js'
 import { Product } from './product.js'
 // import { Book } from './book.js'
 
+
+
 const main = () => {
-    const logger = new Logger();
 
-    const book = new Book('Harry Potter and the Philosopher\'s Stone', 'fantasy', 'hard', 100, 980);
-    // console.log(book);
+    function getGenreIcon(num: 1 | 2): number {
+        let code: number;
+        switch (num) {
+            case 1:
+                code = 1;
+                break;
+            case 2:
+                code = 2;
+                break;
+            default:
+                code = 3
 
-    book.addReview({
-        author: 'Andrey',
-        text: 'Text',
-        score: 4
-    });
-    book.addReview({
-        author: 'Irina',
-        text: 'Text',
-        score: 2
-    });
+        }
+        return code
+    }
+    console.log(getGenreIcon(2));
 
-    Logger.info(book.name);
-    Logger.error('some error');
-    Product.getInfoStatic(book);
-    
-    console.log(book.type);
-    console.log(book.score);
+
+    const getNumber = (num: number | string): number => {
+        if (typeof num === 'number') {
+            return num
+        } else {
+            num
+        }
+        return 100;
+    }
+
+
+    try {
+        throw 'error';
+    } catch (error: unknown) {
+        if (error instanceof Error) {
+            console.log(error.message);
+        }
+        if (typeof error === 'string') {
+            console.log(error.toUpperCase());
+        }
+    }
+
+
+    const Person = {
+        age: 40,
+        getAge: function (num: number) {
+            return this.age * num
+        }
+    }
+    const Andrey = {
+        age: 21,
+    }
+    console.log(Person.getAge.call(Andrey, 5));
 
 }
 main();
-
-
-
 
 
 
@@ -196,6 +224,5 @@ main();
 // console.log(`Корзина ${JSON.stringify(user1.cart)}`);
 
 // console.log(books, products);
-
 
 
