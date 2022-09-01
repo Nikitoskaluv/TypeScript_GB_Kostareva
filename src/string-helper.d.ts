@@ -1,0 +1,1 @@
+export function toUpperCase(string: string): string;
